@@ -14,8 +14,10 @@ router.get(
   authController.isLoggedIn,
   viewsController.getOverview
 );
+//link with specifiy pug page
 router.get('/tour/:slug', authController.isLoggedIn, viewsController.getTour);
 router.get('/login', authController.isLoggedIn, viewsController.getLoginForm);
+router.get('/signup', viewsController.getSignUpForm);
 router.get('/me', authController.protect, viewsController.getAccount);
 router.get(
   '/my-tours',
@@ -23,11 +25,5 @@ router.get(
   authController.protect,
   viewsController.getMyTours
 );
-// without api submit
-// router.post(
-//   '/submit-user-data',
-//   authController.protect,
-//   viewsController.updateUserData
-// );
 
 module.exports = router;

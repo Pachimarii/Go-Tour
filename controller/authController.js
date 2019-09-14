@@ -36,21 +36,14 @@ const createSendToken = (user, statusCode, res) => {
 };
 
 exports.signup = catchAsync(async (req, res, next) => {
-  // const newUser = await User.create({
-  //   name: req.body.name,
-  //   email: req.body.email,
-  //   password: req.body.password,
-  //   passwordConfirm: req.body.passwordConfirm
-  // });
-  //http://127.0.0.1:3000/me
   const url = `${req.protocol}://${req.get('host')}/me`;
   const newUser = await User.create(req.body);
   await new Email(newUser, url).sendWelcome();
+  //sign in the new user
   createSendToken(newUser, 201, res);
 });
 
 exports.logout = (req, res) => {
-  console.log("asdasdsasssss");
   res.cookie('jwt', 'loggedout', {
     expires: new Date(Date.now() + 10 * 1000),
     httpOnly: true

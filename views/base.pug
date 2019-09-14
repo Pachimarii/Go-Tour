@@ -11,20 +11,15 @@ html
       title Go tours | #{title}
 
   
-    body
+    body 
       // HEADER
-      include _header
-
-    
+      include _header  
       // CONTENT
       //- used for inject
       block content
 
       // FOOTER
       include _footer
-      //- script(src='/js/mapbox.js')
-      //- script(src='/js/login.js')
-      //- script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js')
       
       script(src='https://js.stripe.com/v3/')
       script(src='/js/bundle.js')

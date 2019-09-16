@@ -335,6 +335,7 @@ body {
  
   .card{
     min-width: 25rem;
+    
   }
   .card-container{
    justify-content: center;
@@ -1338,31 +1339,6 @@ body {
   transform: translateY(-2px);
 }
 
-.flip-container{
-  display: -webkit-box;
-  display: -ms-flexbox;
-  max-width:33rem;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  transform-style: preserve-3d;
-  transition: all 0.8s ease;
-}
-
-.flip-container:hover{
-  transform: rotateY(180deg);
-
-}
-.front{
-  position: absolute;
-}
-.back{
-  background-color:black;
-  transform: rotateY(180deg);
-}
-
 /* background video display */
 .bg-video{
   position: absolute;
@@ -1435,3 +1411,10 @@ body {
   100% {
     opacity: 1;
     transform: translatex(0); } }
+
+    @media (max-width: 765px) {
+      .header__text {
+       display:none;
+      }
+    }
+   
